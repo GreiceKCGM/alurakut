@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { AlurakutLoginScreen } from "./AluraKut";
+import { AlurakutLoginScreen } from './LoginPage/aluraKutLoginSreen';
  
  // ================================================================================================================
   // Reset Styles
