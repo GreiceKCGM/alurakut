@@ -43,7 +43,7 @@ export function AlurakutMenu({ githubUser }) {
           </div>
         </nav>
 
-        <button onClick={() => setMenuState(!isMenuOpen)}>
+        <button type="button" onClick={() => setMenuState(!isMenuOpen)}>
           {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} alt={`${BASE_URL}'s menu aberto`} />}
           {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} alt={`${BASE_URL}'s menu fechado`} />}
         </button>
