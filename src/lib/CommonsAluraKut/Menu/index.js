@@ -1,7 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
-import styled from 'styled-components';
-import MenuAluraKut  from'./styles/styled';
+import AlurakutMenuWrapper, { AlurakutMenuLogo } from './styles/styled';
+import AlurakutProfileSidebarMenuDefault from './MenuProfile/AlurakutProfileSidebarMenuDefault';
 import { BASE_URL } from '../BaseURL';
 
 
@@ -25,9 +25,9 @@ function Link({ href, children, ...props }) {
 export function AlurakutMenu({ githubUser }) {
   const [isMenuOpen, setMenuState] = React.useState(false);
   return (
-    <MenuAluraKut.Wrapper isMenuOpen={isMenuOpen}>
+    <AlurakutMenuWrapper isMenuOpen={isMenuOpen}>
       <div className="container">
-        <MenuAluraKut.Logo src={`${BASE_URL}/logo.svg`} />
+        <AlurakutMenuLogo src={`${BASE_URL}/logo.svg`} />
 
         <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/'}, {name: 'Amigos', slug: '/amigos'}, {name: 'Comunidades', slug: '/comunidades'}].map((menuItem) => (
@@ -52,7 +52,7 @@ export function AlurakutMenu({ githubUser }) {
         </button>
       </div>
       <AlurakutMenuProfileSidebar githubUser={githubUser} />
-    </MenuAluraKut.Wrapper>
+    </AlurakutMenuWrapper>
   )
 }
 
@@ -75,57 +75,4 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
   )
 }
 
-// ================================================================================================================
-// AlurakutProfileSidebarMenuDefault
-// ================================================================================================================
-export function AlurakutProfileSidebarMenuDefault() {
-  return (
-    <AlurakutProfileSidebarMenuDefault.Wrapper>
-      <nav>
-        <a href="/">
-          <img src={`${BASE_URL}/icons/user.svg`} />
-            Perfil
-          </a>
-        <a href="/">
-          <img src={`${BASE_URL}/icons/book.svg`} />
-            Recados
-          </a>
-        <a href="/">
-          <img src={`${BASE_URL}/icons/camera.svg`} />
-            Fotos
-          </a>
-        <a href="/">
-          <img src={`${BASE_URL}/icons/sun.svg`} />
-            Depoimentos
-          </a>
-      </nav>
-      <hr />
-      <nav>
-        <a href="/">
-          <img src={`${BASE_URL}/icons/plus.svg`} />
-            GitHub Trends
-          </a>
-        <a href="/logout">
-          <img src={`${BASE_URL}//icons/logout.svg`} />
-            Sair
-          </a>
-      </nav>
-    </AlurakutProfileSidebarMenuDefault.Wrapper>
-  )
-}
-AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
-  a {
-    font-size: 12px;
-    color: #2E7BB4;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    text-decoration: none;
-    img {
-      width: 16px;
-      height: 16px;
-      margin-right: 5px; 
-    }
-  }
-`;
+

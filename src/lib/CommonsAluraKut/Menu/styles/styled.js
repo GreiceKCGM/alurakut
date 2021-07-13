@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import { BASE_URL } from "../../BaseURL";
 
-const MenuAluraKut = styled.nav``;
-
-
-
-MenuAluraKut.Wrapper = styled.header`
+const AlurakutMenuWrapper = styled.header`
   width: 100%;
   background-color: #308BC5;
   .alurakutMenuProfileSidebar {
@@ -108,11 +104,28 @@ MenuAluraKut.Wrapper = styled.header`
     } 
   }
 `;
-MenuAluraKut.Logo = styled.img`
+export const AlurakutMenuLogo = styled.img`
   background-color: #ffffff;
   padding: 9px 14px;
   border-radius: 1000px;
   height: 34px;
 `;
 
-export default MenuAluraKut;
+export const AlurakutProfileSidebarMenuDefaultWrapper = styled.div`
+  a {
+    font-size: 12px;
+    color: #2E7BB4;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    img {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px; 
+    }
+  }
+`;
+
+export default AlurakutMenuWrapper;
