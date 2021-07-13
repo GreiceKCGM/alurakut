@@ -57,7 +57,7 @@ export default function Home() {
         <div className="profileRelationsArea" style={{gridArea: 'profileRelationsArea'}}>
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">
-              Pessoas da Comunidade ({pessoasFavoritas.length})
+              Pessoas da Favoritas ({pessoasFavoritas.length})
             </h2>
 
             <ul>
