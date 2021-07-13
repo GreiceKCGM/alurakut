@@ -3,32 +3,8 @@ import Box from '../src/components/Box';
 import MainGrid from '../src/components/MainGrid';
 import { AlurakutMenu } from '../src/lib/CommonsAluraKut/Menu/index';
 import OrkutNostalgicIconSet from '../src/lib/CommonsAluraKut/OrkutNostalgicIconSet/index';
-import AlurakutProfileSidebarMenuDefault from '../src/lib/CommonsAluraKut/Menu/MenuProfile/AlurakutProfileSidebarMenuDefault';
 import { ProfileRelationsBoxWrapper } from '../src/components/screen/ProfileRelations/style';
-
-function ProfileSidebar(propriedades) {
-  const { githubUser } = propriedades;
-  return (
-    <Box as="aside">
-      <img
-        src={`https://github.com/${githubUser}.png`}
-        alt={`${githubUser}'s profile`}
-        style={{ borderRadius: '8px' }}
-      />
-      <hr />
-      <p>
-        <a className="boxLink" href={`https://github.com/${githubUser}`}>
-          @
-          { githubUser }
-
-        </a>
-      </p>
-      <hr />
-
-      <AlurakutProfileSidebarMenuDefault />
-    </Box>
-  );
-}
+import ProfileSidebar from '../src/lib/CommonsAluraKut/Menu/MenuProfile/ProfileSidebar';
 
 export default function Home() {
   const usuarioAleatorio = 'GreiceKCGM';
