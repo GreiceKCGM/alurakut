@@ -32,7 +32,7 @@ export default function Home() {
       .then((response)=>{
         response.json().then( (body)=> setPessoasFavoritas(body.map( ({ login }) => login )  ) )
       })
-  },3000)
+  })
 
   return(
     <>
@@ -63,8 +63,8 @@ export default function Home() {
             <ul>
               {pessoasFavoritas.map((itemAtual) => {
                 return (
-                  <li>
-                    <a href={`/users/${itemAtual}`} key={itemAtual}>
+                  <li key={itemAtual}>
+                    <a href={`/users/${itemAtual}`} >
                       <img src={`https://github.com/${itemAtual}.png`} />
                       <span>{itemAtual}</span>
                     </a>
