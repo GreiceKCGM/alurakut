@@ -5,25 +5,10 @@ import { AlurakutMenu } from '../src/lib/CommonsAluraKut/Menu/index';
 import OrkutNostalgicIconSet from '../src/lib/CommonsAluraKut/OrkutNostalgicIconSet/index';
 import { ProfileRelationsBoxWrapper } from '../src/components/screen/ProfileRelations/style';
 import ProfileSidebar from '../src/lib/CommonsAluraKut/Menu/MenuProfile/ProfileSidebar';
+import PessoasComunidade from '../src/components/screen/pessoasComunidade';
 
 export default function Home() {
   const usuarioAleatorio = 'GreiceKCGM';
-  const [pessoasFavoritas, setPessoasFavoritas] = React.useState([]);
-
-  React.useEffect(() => {
-    // setTimeout(() =>setPessoasFavoritas( [
-    //   'juunegreiros',
-    //   'omariosouto',
-    //   'peas',
-    //   'rafaballerini',
-    //   'marcobrunodev',
-    //   'felipefialho'
-    // ]))
-    fetch(`https://api.github.com/users/${usuarioAleatorio}/following`)
-      .then((response) => {
-        response.json().then((body) => setPessoasFavoritas(body.map(({ login }) => login)));
-      });
-  });
 
   const [comunidades, setComunidades] = React.useState([{
     id: '12802378123789378912789789123896123',
@@ -114,28 +99,7 @@ export default function Home() {
               ))}
             </ul>
           </ProfileRelationsBoxWrapper>
-          <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">
-              Pessoas da Favoritas (
-              {pessoasFavoritas.length}
-              )
-            </h2>
-
-            <ul>
-              {pessoasFavoritas.map((itemAtual) => (
-                <li key={itemAtual}>
-                  <a href={`/users/${itemAtual}`}>
-                    <img
-                      src={`https://github.com/${itemAtual}.png`}
-                      alt={`${itemAtual}'s profile`}
-                    />
-                    <span>{itemAtual}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-          </ProfileRelationsBoxWrapper>
+          <PessoasComunidade githubUser={usuarioAleatorio} />
 
         </div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../../../components/Box';
 import AlurakutProfileSidebarMenuDefault from './AlurakutProfileSidebarMenuDefault';
 
-export default function ProfileSidebar({ propriedades, githubUser }) {
+export default function ProfileSidebar({ githubUser }) {
   return (
     <Box as="aside">
       <img
