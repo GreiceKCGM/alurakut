@@ -1,7 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import AlurakutMenuWrapper, { AlurakutMenuLogo } from './styles/styled';
-import AlurakutProfileSidebarMenuDefault from './MenuProfile/AlurakutProfileSidebarMenuDefault';
+import AlurakutMenuProfileSidebar from './MenuProfile/AlurakutMenuProfileSidebar';
 import { BASE_URL } from '../BaseURL';
 
 
@@ -56,23 +56,6 @@ export function AlurakutMenu({ githubUser }) {
   )
 }
 
-function AlurakutMenuProfileSidebar({ githubUser }) {
-  return (
-    <div className="alurakutMenuProfileSidebar">
-      <div>
-        <img src={`https://github.com/${githubUser}.png`} style={{ borderRadius: '8px' }} />
-        <hr />
-        <p>
-          <a className="boxLink" href={`/user/${githubUser}`}>
-            @{githubUser}
-          </a>
-        </p>
-        <hr />
 
-        <AlurakutProfileSidebarMenuDefault />
-      </div>
-    </div>
-  )
-}
 
 
