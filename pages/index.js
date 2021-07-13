@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import React from 'react';
 import Box from '../src/components/Box';
 import MainGrid from '../src/components/MainGrid';
 import { AlurakutMenu } from'../src/lib/CommonsAluraKut/Menu/index';
@@ -17,14 +17,22 @@ function ProfileSidebar(propriedades) {
 
 export default function Home() {
   const usuarioAleatorio = 'GreiceKCGM';
-  const pessoasFavoritas = [
-    'juunegreiros',
-    'omariosouto',
-    'peas',
-    'rafaballerini',
-    'marcobrunodev',
-    'felipefialho'
-  ]
+  const [pessoasFavoritas, setPessoasFavoritas] = React.useState([]) 
+
+  React.useEffect(() => {
+    // setTimeout(() =>setPessoasFavoritas( [
+    //   'juunegreiros',
+    //   'omariosouto',
+    //   'peas',
+    //   'rafaballerini',
+    //   'marcobrunodev',
+    //   'felipefialho'
+    // ]))
+    fetch(`https://api.github.com/users/${usuarioAleatorio}/following`)
+      .then((response)=>{
+        response.json().then( (body)=> setPessoasFavoritas(body.map( ({ login }) => login )  ) )
+      })
+  },3000)
 
   return(
     <>
@@ -49,7 +57,7 @@ export default function Home() {
         <div className="profileRelationsArea" style={{gridArea: 'profileRelationsArea'}}>
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">
-              Pessoas da Comunidade
+              Pessoas da Comunidade ({pessoasFavoritas.length})
             </h2>
 
             <ul>
