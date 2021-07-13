@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import Box from "../Box";
+import styled from 'styled-components';
+import Box from '../Box';
 
 export const ProfileRelationsBoxWrapper = styled(Box)`
 ul {
   display: grid;
   grid-gap: 8px;
   grid-template-columns: 1fr 1fr 1fr; 
-  /* max-height: 220px; */
+  max-height: 220px;
   list-style: none;
 }
 img {
@@ -49,4 +49,4 @@ ul li a {
     background-image: linear-gradient(0deg,#00000073,transparent);
   }
 }
-`; 
+`;

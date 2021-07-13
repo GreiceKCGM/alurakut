@@ -1,10 +1,10 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 import { AlurakutLoginScreen } from './LoginPage/aluraKutLoginSreen';
- 
- // ================================================================================================================
-  // Reset Styles
-  // ================================================================================================================
-  export const AlurakutStyles = css`
+
+// ===================================================================
+// Reset Styles
+// ========================================================
+export const AlurakutStyles = css`
     *::-webkit-scrollbar {
       width: 8px;
     }
@@ -45,4 +45,4 @@ import { AlurakutLoginScreen } from './LoginPage/aluraKutLoginSreen';
       }
     }
     ${AlurakutLoginScreen}
-  `; 
+  `;

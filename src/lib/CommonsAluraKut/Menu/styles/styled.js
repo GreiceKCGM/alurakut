@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { BASE_URL } from "../../BaseURL";
+import styled from 'styled-components';
+import { BASE_URL } from '../../BaseURL';
 
 const AlurakutMenuWrapper = styled.header`
   width: 100%;
@@ -14,9 +14,9 @@ const AlurakutMenuWrapper = styled.header`
     right: 0;
     top: 48px;
     transition: .3s;
-    pointer-events: ${({ isMenuOpen }) => isMenuOpen ? 'all' : 'none'};
-    opacity: ${({ isMenuOpen }) => isMenuOpen ? '1' : '0'};
-    transform: ${({ isMenuOpen }) => isMenuOpen ? 'translateY(0)' : 'translateY(calc(-100% - 48px))'};
+    pointer-events: ${({ isMenuOpen }) => (isMenuOpen ? 'all' : 'none')};
+    opacity: ${({ isMenuOpen }) => (isMenuOpen ? '1' : '0')};
+    transform: ${({ isMenuOpen }) => (isMenuOpen ? 'translateY(0)' : 'translateY(calc(-100% - 48px))')};
     @media(min-width: 860px) {
       display: none;
     }

@@ -1,8 +1,7 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
-// ================================================================================================================
 // Login Page
-// ================================================================================================================
+
 export const AlurakutLoginScreen = css`
   :root {
     --backgroundPrimary: #D9E6F6;
