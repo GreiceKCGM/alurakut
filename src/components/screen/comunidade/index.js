@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ProfileRelationsBoxWrapper } from '../ProfileRelations/style';
 
-export default function ComunidadeBox({comunidades}) {
+export default function ComunidadeBox({ comunidades }) {
   return (
 
     <ProfileRelationsBoxWrapper>
@@ -27,3 +28,12 @@ export default function ComunidadeBox({comunidades}) {
     </ProfileRelationsBoxWrapper>
   );
 }
+
+ComunidadeBox.propTypes = {
+  comunidades: PropTypes.string,
+
+};
+
+ComunidadeBox.defaultProps = {
+  comunidades: '',
+};

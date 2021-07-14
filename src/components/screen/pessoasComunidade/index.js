@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ProfileRelationsBoxWrapper } from '../ProfileRelations/style';
 
 export default function PessoasComunidade({ githubUser }) {
@@ -44,3 +45,12 @@ export default function PessoasComunidade({ githubUser }) {
     </ProfileRelationsBoxWrapper>
   );
 }
+
+PessoasComunidade.propTypes = {
+  githubUser: PropTypes.string,
+
+};
+
+PessoasComunidade.defaultProps = {
+  githubUser: '',
+};

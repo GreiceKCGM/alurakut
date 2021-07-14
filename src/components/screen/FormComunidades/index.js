@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Box from '../../Box';
 
 export default function FormComunidades({ addFunction }) {
@@ -47,3 +48,12 @@ export default function FormComunidades({ addFunction }) {
     </Box>
   );
 }
+
+FormComunidades.propTypes = {
+  addFunction: PropTypes.string,
+
+};
+
+FormComunidades.defaultProps = {
+  addFunction: '',
+};

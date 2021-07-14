@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Box from '../../../../components/Box';
 import AlurakutProfileSidebarMenuDefault from './AlurakutProfileSidebarMenuDefault';
 
@@ -24,3 +25,13 @@ export default function ProfileSidebar({ githubUser }) {
     </Box>
   );
 }
+
+ProfileSidebar.propTypes = {
+  githubUser: PropTypes.string,
+
+};
+
+ProfileSidebar.defaultProps = {
+  githubUser: '',
+
+};
