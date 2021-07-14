@@ -30,7 +30,7 @@ export default function PessoasComunidade({ githubUser }) {
       <ul>
         {pessoasFavoritas.slice(0, 6).map((itemAtual) => (
           <li key={itemAtual}>
-            <a href={`/users/${itemAtual}`}>
+            <a href={`https://github.com/${itemAtual}`}>
               <img
                 src={`https://github.com/${itemAtual}.png`}
                 alt={`${itemAtual}'s profile`}

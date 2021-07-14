@@ -18,9 +18,9 @@ export default function comunidadesPadrao() {
     },
     {
       id: '24646746',
-      title: 'Alurakut',
-      image: 'https://alurakut-eta.vercel.app/',
-      href: 'https://github.com/alura-challenges/alurakut/',
+      title: 'Hipsters Pontotech',
+      image: 'https://hipsters.tech/wp-content/uploads/2017/01/logo-hipsters-pontotech.svg',
+      href: 'https://hipsters.tech/',
     },
     {
       id: '19849160458949',
