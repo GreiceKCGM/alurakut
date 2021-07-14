@@ -30,10 +30,16 @@ export default function ComunidadeBox({ comunidades }) {
 }
 
 ComunidadeBox.propTypes = {
-  comunidades: PropTypes.func,
+  comunidades: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    href: PropTypes.string,
+
+  })),
 
 };
 
 ComunidadeBox.defaultProps = {
-  comunidades: undefined,
+  comunidades: '',
 };

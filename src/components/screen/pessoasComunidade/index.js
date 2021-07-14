@@ -6,19 +6,11 @@ export default function PessoasComunidade({ githubUser }) {
   const [pessoasFavoritas, setPessoasFavoritas] = React.useState([]);
 
   React.useEffect(() => {
-  // setTimeout(() =>setPessoasFavoritas( [
-  //   'juunegreiros',
-  //   'omariosouto',
-  //   'peas',
-  //   'rafaballerini',
-  //   'marcobrunodev',
-  //   'felipefialho'
-  // ]))
     fetch(`https://api.github.com/users/${githubUser}/following`)
       .then((response) => {
         response.json().then((body) => setPessoasFavoritas(body.map(({ login }) => login)));
       });
-  });
+  }, []);
   return (
 
     <ProfileRelationsBoxWrapper>

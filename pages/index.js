@@ -8,6 +8,7 @@ import PessoasComunidade from '../src/components/screen/pessoasComunidade';
 import FormComunidades from '../src/components/screen/FormComunidades';
 import ComunidadeBox from '../src/components/screen/comunidade';
 import comunidadesPadrao from '../src/components/comunidadePadrao';
+import SeguidoresBox from '../src/components/seguidores';
 
 export default function Home() {
   const usuarioAleatorio = 'GreiceKCGM';
@@ -38,6 +39,7 @@ export default function Home() {
         </div>
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
+          <SeguidoresBox githubUser={usuarioAleatorio} />
           <ComunidadeBox comunidades={comunidades} />
           <PessoasComunidade githubUser={usuarioAleatorio} />
 
