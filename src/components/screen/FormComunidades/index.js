@@ -50,10 +50,10 @@ export default function FormComunidades({ addFunction }) {
 }
 
 FormComunidades.propTypes = {
-  addFunction: PropTypes.string,
+  addFunction: PropTypes.func,
 
 };
 
 FormComunidades.defaultProps = {
-  addFunction: '',
+  addFunction: undefined,
 };
