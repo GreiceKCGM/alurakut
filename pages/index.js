@@ -3,13 +3,20 @@ import Box from '../src/components/Box';
 import MainGrid from '../src/components/MainGrid';
 import { AlurakutMenu } from '../src/lib/CommonsAluraKut/Menu/index';
 import OrkutNostalgicIconSet from '../src/lib/CommonsAluraKut/OrkutNostalgicIconSet/index';
-import { ProfileRelationsBoxWrapper } from '../src/components/screen/ProfileRelations/style';
 import ProfileSidebar from '../src/lib/CommonsAluraKut/Menu/MenuProfile/ProfileSidebar';
 import PessoasComunidade from '../src/components/screen/pessoasComunidade';
 import FormComunidades from '../src/components/screen/FormComunidades';
+import ComunidadeBox from '../src/components/screen/comunidade';
+import comunidadesPadrao from '../src/components/comunidadePadrao';
 
 export default function Home() {
   const usuarioAleatorio = 'GreiceKCGM';
+  const [comunidades, setComunidades] = React.useState([]);
+
+  const addComunidade = (comunidade) => setComunidades([...comunidades, comunidade]);
+
+  React.useEffect(() => setTimeout(() => setComunidades(comunidadesPadrao()), 1000), []);
+
   return (
     <>
       <AlurakutMenu githubUser={usuarioAleatorio} />
@@ -26,34 +33,12 @@ export default function Home() {
 
             <OrkutNostalgicIconSet />
           </Box>
-          <FormComunidades />
+          <FormComunidades addFunction={addComunidade} />
 
         </div>
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
-          <ProfileRelationsBoxWrapper>
-            <h2 className="smallTitle">
-              Comunidades
-            </h2>
-            {/* <h2 className="smallTitle">
-              Comunidades (
-              {comunidades.length}
-              )
-            </h2>
-            <ul>
-              {comunidades.map((itemAtual) => (
-                <li key={itemAtual.id}>
-                  <a href={`/users/${itemAtual.title}`}>
-                    <img
-                      src={itemAtual.image}
-                      alt={`${itemAtual}'s Comunidade`}
-                    />
-                    <span>{itemAtual.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul> */}
-          </ProfileRelationsBoxWrapper>
+          <ComunidadeBox comunidades={comunidades} />
           <PessoasComunidade githubUser={usuarioAleatorio} />
 
         </div>
