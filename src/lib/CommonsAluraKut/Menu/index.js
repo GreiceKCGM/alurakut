@@ -1,5 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
+import PropTypes from 'prop-types';
 import AlurakutMenuWrapper, { AlurakutMenuLogo } from './styles/styled';
 import AlurakutMenuProfileSidebar from './MenuProfile/AlurakutMenuProfileSidebar';
 import { BASE_URL } from '../BaseURL';
@@ -9,7 +10,10 @@ const v = '1';
 function Link({ href, children, ...props }) {
   return (
     <NextLink href={href} passHref>
-      <a {...props}>
+      <a
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      >
         {children}
       </a>
     </NextLink>
@@ -43,7 +47,7 @@ export function AlurakutMenu({ githubUser }) {
           </div>
         </nav>
 
-        <button onClick={() => setMenuState(!isMenuOpen)}>
+        <button type="button" onClick={() => setMenuState(!isMenuOpen)}>
           {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} alt={`${BASE_URL}'s menu aberto`} />}
           {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} alt={`${BASE_URL}'s menu fechado`} />}
         </button>
@@ -52,3 +56,23 @@ export function AlurakutMenu({ githubUser }) {
     </AlurakutMenuWrapper>
   );
 }
+
+Link.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.node,
+};
+
+Link.defaultProps = {
+  children: null,
+  href: '',
+};
+
+AlurakutMenu.propTypes = {
+  githubUser: PropTypes.string,
+
+};
+
+AlurakutMenu.defaultProps = {
+  githubUser: '',
+
+};

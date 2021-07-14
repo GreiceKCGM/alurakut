@@ -23,6 +23,7 @@ export default function OrkutNostalgicIconSet(props) {
               key={`orkut__icon_set__${slug}_img`}
               className="OrkutNostalgicIconSet__iconSample"
               src={`https://alurakut.vercel.app/icons/${icon}.svg`}
+              alt={`${name} icon`}
             />
             {props[slug] ? props[slug] : 0}
           </span>
@@ -39,13 +40,15 @@ export default function OrkutNostalgicIconSet(props) {
             <span className="OrkutNostalgicIconSet__title">
               {name}
             </span>
-            <span className="OrkutNostalgicIconSet__iconComplex" className="OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
+            <span className="OrkutNostalgicIconSet__iconComplex OrkutNostalgicIconSet__number" style={{ gridArea: 'number' }}>
               {[0, 1, 2].map((_, index) => {
                 const isHeartActive = index <= (total - 1);
                 return (
                   <img
+                    // eslint-disable-next-line react/no-array-index-key
                     key={`orkut__icon_set__${slug}_img_${index}`}
                     src={`https://alurakut.vercel.app/icons/${icon}.svg`}
+                    alt={`${name} icon`}
                     style={{ marginRight: '2px', opacity: isHeartActive ? 1 : '0.5' }}
                   />
                 );
