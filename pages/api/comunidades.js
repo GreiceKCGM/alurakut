@@ -4,6 +4,7 @@ export default async function recebedorDeRequests(request, response) {
   if (request.method === 'POST') {
     const TOKEN = '000a1482901f142bcc9d3d67a99261';
     const client = new SiteClient(TOKEN);
+    console.log(request.body);
 
     // Validar os dados, antes de sair cadastrando
     const registroCriado = await client.items.create({

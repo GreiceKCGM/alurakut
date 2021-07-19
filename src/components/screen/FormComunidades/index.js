@@ -15,12 +15,22 @@ export default function FormComunidades({ addFunction }) {
 
         const comunidade = {
           title: dadosDoForm.get('title'),
-          imageURL: dadosDoForm.get('image'),
+          imageUrl: dadosDoForm.get('image'),
           href: dadosDoForm.get('href'),
-          creatorSlug: 'GreiceKCGM',
+          creatorslug: 'GreiceKCGM',
         };
-
-        addFunction(comunidade);
+        fetch('/api/comunidades', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(comunidade),
+        })
+          .then(async (response) => {
+            const dados = response.json();
+            const comunidadeCriada = dados.registroCriado;
+            addFunction(comunidadeCriada);
+          });
         return true;
       }}
       >
@@ -41,8 +51,24 @@ export default function FormComunidades({ addFunction }) {
             aria-label="Coloque uma URL para usarmos de capa"
           />
         </div>
+        <div>
+
+          <input
+            placeholder="Coloque um LINK para entrarmos na comunidade"
+            name="href"
+            aria-label="Coloque um LINK para entrarmos na comunidade"
+          />
+        </div>
         <button type="submit">
           Criar comunidade
+        </button>
+        <button
+          type="submit"
+          style={{
+            marginLeft: '18px',
+          }}
+        >
+          Excluir comunidade
         </button>
       </form>
     </Box>
