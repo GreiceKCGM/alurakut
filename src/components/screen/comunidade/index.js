@@ -17,7 +17,7 @@ export default function ComunidadeBox({ comunidades }) {
           <li key={itemAtual.id}>
             <a href={`${itemAtual.href}`}>
               <img
-                src={itemAtual.image}
+                src={itemAtual.imageUrl}
                 alt={`${itemAtual}'s Comunidade`}
               />
               <span>{itemAtual.title}</span>

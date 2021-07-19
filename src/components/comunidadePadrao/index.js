@@ -31,7 +31,7 @@ export default function comunidadesPadrao() {
     {
       id: '2184089719840984',
       title: 'MArco Bruno',
-      image: 'https://github.com/marcobrunodev.png',
+      image: 'https://yt3.ggpht.com/ytc/AKedOLSsP9fC9UpoJsmhyp907BKXbVi8hJcX_mDFO3DyUw=s176-c-k-c0x00ffffff-no-rj-mo',
       href: 'https://www.youtube.com/channel/UCVheRLgrk7bOAByaQ0IVolg',
     },
   ];

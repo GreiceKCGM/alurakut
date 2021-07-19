@@ -14,10 +14,10 @@ export default function FormComunidades({ addFunction }) {
         const dadosDoForm = new FormData(e.target);
 
         const comunidade = {
-          id: new Date().toISOString(),
           title: dadosDoForm.get('title'),
-          image: dadosDoForm.get('image'),
+          imageURL: dadosDoForm.get('image'),
           href: dadosDoForm.get('href'),
+          creatorSlug: 'GreiceKCGM',
         };
 
         addFunction(comunidade);
