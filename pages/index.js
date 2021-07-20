@@ -1,4 +1,7 @@
 import React from 'react';
+import nookies from 'nookies';
+import jwt from 'jsonwebtoken';
+import PropTypes from 'prop-types';
 import Box from '../src/components/Box';
 import MainGrid from '../src/components/MainGrid';
 import { AlurakutMenu } from '../src/lib/CommonsAluraKut/Menu/index';
@@ -9,8 +12,9 @@ import FormComunidades from '../src/components/screen/FormComunidades';
 import ComunidadeBox from '../src/components/screen/comunidade';
 import SeguidoresBox from '../src/components/seguidores';
 
-export default function Home() {
-  const usuarioAleatorio = 'GreiceKCGM';
+export default function Home(props) {
+  // eslint-disable-next-line react/destructuring-assignment
+  const usuarioAleatorio = props.githubUser;
   const [comunidades, setComunidades] = React.useState([]);
 
   const addComunidade = (comunidade) => setComunidades([...comunidades, comunidade]);
@@ -72,3 +76,35 @@ export default function Home() {
     </>
   );
 }
+
+export async function getServerSideProps(context) {
+  const cookies = nookies.get(context);
+  const token = cookies.USER_TOKEN;
+  const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
+    headers: {
+      Authorization: token,
+    },
+  })
+    .then((resposta) => resposta.json());
+
+  if (!isAuthenticated) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  const { githubUser } = jwt.decode(token);
+  return {
+    props: {
+      githubUser,
+    }, // will be passed to the page component as props
+  };
+}
+
+Home.propTypes = {
+  githubUser: PropTypes.string.isRequired,
+
+};
